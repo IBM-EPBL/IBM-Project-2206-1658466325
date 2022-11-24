@@ -1,0 +1,137 @@
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body background-image="cardiac_blues.jpg" background-repeat="no-repeat" background-size="cover">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-dark" style="background-color: rgb(243, 216, 13);">
+<marquee style="font-size:20pt;color:blueviolet"behavior="alternate" direction="left"><b>Welcome to Heart Disease Prediction Portal!</b></marquee>
+</nav>
+<div class="container">
+<br>
+<form action = "{{url_for('predict')}}" method ="POST" >
+<fieldset>
+<legend style="color: rgb(219, 117, 21); text-align: center;"><b>Heart Disease Prediction Platform</b></legend><br>
+<div class="card card-body" style="background-color: rgba(224, 162, 188, 0.795);">
+<div class="form-group row">
+<div class="col-sm-3">
+<label for="age">Age</label>
+<input type="number" class="form-control" id="age" name="age" min="18" max="100" required>
+</div>
+<div class="col-sm-3">
+<label for="sex">Sex</label>
+<select class="form-control" id="sex" name="sex" required>
+<option disabled selected value> Choose Field </option>
+<option value = "0">Female</option>
+<option value = "1">Male</option>
+</select>
+</div>
+</div>
+<br>
+<div class="form-group row">
+<div class="col-sm">
+<label for="cp">Chest Pain Type</label>
+<select class="form-control" id="cp" name = "cp" required>
+<option disabled selected value> Choose Field </option>
+<option value = "1">Typical Angina</option>
+<option value = "2">Atypical Angina</option>
+<option value = "3">Non-anginal Pain</option>
+<option value = "4">Asymptomatic</option>
+</select>
+</div>
+<div class="col-sm">
+<label for="trestbps">Blood Pressure</label>
+<input type="number" class="form-control" id="trestbps" name="trestbps" min="60" max="200" required>
+</div>
+<div class="col-sm">
+<label for="chol">Cholesterol</label>
+<input type="number" class="form-control" id="chol" name="chol" min="100" max="600" required>
+</div>
+<div class="col-sm">
+<label for="fbs">Fasting Blood Sugar over 120</label>
+<select class="form-control" id="fbs" name="fbs" required>
+<option disabled selected value> Choose Field </option>
+<option value = "0">Absence</option>
+<option value = "1">Presence</option>
+</select>
+</div>
+</div>
+ <br>
+<div class="form-group row">
+<div class="col-sm">
+<label for="restecg">EKG Results </label>
+<select class="form-control" id="restecg" name="restecg" required>
+<option disabled selected value> Choose Field </option>
+<option value = "0">Normal </option>
+<option value = "1">Having ST wave abnormality </option>
+<option value = "2">HAving High abnormality</option>
+</select>
+</div>
+<div class="col-sm">
+<label for="thalach">Maximum Heart Rate</label>
+<input type="number" class="form-control" id="thalach" name="thalach" min="100" max="200" required>
+</div>
+<div class="col-sm">
+<label for="exang">Exercise Angina </label>
+<select class="form-control" id="exang" name="exang" required>
+<option disabled selected value> Choose Field </option>
+<option value = "0">Absence</option>
+<option value = "1">Presence</option>
+</select>
+</div>
+<div class="col-sm">
+<label for="oldpeak">ST Depression</label>
+<input type="number" step="any" class="form-control" id="oldpeak" name="oldpeak" min="0" max="7" required>
+</div>
+</div>
+<br>
+<div class="form-group row">
+<div class="col-sm">
+<label for="slope">Slope of ST</label>
+<select class="form-control" id="slope" name="slope" required>
+<option disabled selected value> Choose Field </option>
+<option value = "1">Upslope</option>
+<option value = "2">Flat</option>
+<option value = "3">Downslope</option>
+</select>
+</div>
+<div class="col-sm">
+<label for="ca">Number of fluro Vessels</label>
+<select class="form-control" id="ca" name = "ca" required>
+<option disabled selected value> Choose Field </option>
+<option value = "0">0</option>
+<option value = "1">1</option>
+<option value = "2">2</option>
+<option value = "3">3</option>
+</select>
+</div>
+<div class="col-sm">
+<label for="thal">Thallium</label>
+<select class="form-control" id="thal" name = "thal" required>
+<option disabled selected value> Choose Field </option>
+<option value = "3">Normal</option>
+<option value = "6">Fixed defect</option>
+<option value = "7">Reversable defect</option>
+</select>
+</div>
+</div>
+<br>
+<div class="form-group">
+<input class="btn btn-info" type="submit" value="Result">
+</div>
+<div id ="result">
+<strong style="color:red">{{result}}</strong>
+</div>
+</div>
+</fieldset>
+</form>
+</div>
+</body>
+</html>
