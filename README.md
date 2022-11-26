@@ -8,7 +8,7 @@ in variant forms, there are several factors which are quite common. Taking those
 and visualizing the causes of heart disease.
 
 Team Members:
-Joe Antony Celshiya JA
-Hanna S
-Sripoornima T
-Harini G
+Joe Antony Celshiya JA |
+Hanna S |
+Sripoornima T |
+Harini G |
