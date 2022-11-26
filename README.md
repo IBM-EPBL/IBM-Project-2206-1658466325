@@ -7,3 +7,8 @@ model to detect the probability of a patient having heart disease. Machine Learn
 in variant forms, there are several factors which are quite common. Taking those into account, we propose an effective method to predict the heart disease by analyzing
 and visualizing the causes of heart disease.
 
+Team Members:
+Joe Antony Celshiya JA
+Hanna S
+Sripoornima T
+Harini G
